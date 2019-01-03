@@ -2,21 +2,23 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-  all: function(cb) {
-    orm.all("cats", function(res) {
+  all: function (cb) {
+    orm.all("burgers", function (res) {
       cb(res);
     });
   },
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("cats", cols, vals, function(res) {
+  create: function (burger_name, cb) {
+    orm.create("burgers", function (res) {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("cats", objColVals, condition, function(res) {
-      cb(res);
-    });
+  update: function (id, cb) {
+    var condition = "id=" + id;
+    // crucial part to understand!!!!
+    // translates between objects and sql 
+    // basically turns into objects
+    orm.update("burgers", {}, condition, cb) 
   }
 };
 
