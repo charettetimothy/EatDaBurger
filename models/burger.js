@@ -7,18 +7,21 @@ var burger = {
       cb(res);
     });
   },
+  
   // The variables cols and vals are arrays.
   create: function (burger_name, cb) {
-    orm.create("burgers", function (res) {
+    orm.create("burgers", [burger_name], function (res) {
       cb(res);
     });
   },
+
   update: function (id, cb) {
     var condition = "id=" + id;
     // crucial part to understand!!!!
     // translates between objects and sql 
     // basically turns into objects
-    orm.update("burgers", {}, condition, cb) 
+    // devoured is a key value pair
+    orm.update("burgers", {devoured: true}, condition, cb) 
   }
 };
 
