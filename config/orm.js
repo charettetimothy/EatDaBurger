@@ -9,12 +9,13 @@ var orm = {
         cb(result);
       });
     },
-    create: function(whatToSelect, table, orderCol) {
-      var queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+    create: function(table, columns, values, cb) {
+      var queryString = "INSERT INTO ?? (??) VALUES (??)";
       console.log(queryString);
-      connection.query(queryString, [whatToSelect, table, orderCol], function(err, result) {
+      connection.query(queryString, [table, columns, values], function(err, result) {
         if (err) throw err;
         console.log(result);
+        cb(result);
       });
     },
     update: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {

@@ -14,13 +14,18 @@ router.get("/burgers", function(req, res) {
   });
 });
 
-router.post("/api/cats", function(req, res) {
-  cat.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function(result) {
+// res for response only!!!
+
+router.post("/burgers/create", function(req, res) {
+  // burger_name needs to be the 'name' when i create index handlebars
+  burger.create(req.body.burger_name, function(result) {
     // Send back the ID of the new quote
-    res.json({ id: result.insertId });
+    // dont need line 23
+    // res.json({ id: result.insertId });
+    console.log(result)
   });
 });
-
+// put is editing something that already exists
 router.put("/api/cats/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
