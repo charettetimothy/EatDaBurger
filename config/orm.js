@@ -10,22 +10,19 @@ var orm = {
       });
     },
     create: function(table, columns, values, cb) {
-      var queryString = "INSERT INTO ?? (??) VALUES (??)";
+      var queryString = "INSERT INTO ??";
+      queryString += " (" + columns.toString() + ") ";
+      queryString += "VALUES ??";
       console.log(queryString);
-      connection.query(queryString, [table, columns, values], function(err, result) {
+      connection.query(queryString, [table, values], function(err, result) {
         if (err) throw err;
         console.log(result);
         cb(result);
       });
     },
-    update: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
+    update: function() {
       var queryString =
-        "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
-  
-      connection.query(
-        queryString,
-        [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol],
-        function(err, result) {
+      connection.query(queryString,[],function(err, result) {
           if (err) throw err;
           console.log(result);
         }

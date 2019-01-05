@@ -8,9 +8,8 @@ var burger = require("../models/burger.js");
 // Create all our routes and set up logic within those routes where required.
 router.get("/burgers", function(req, res) {
   burger.all(function(burgerData) {
-    
     console.log(burgerData)
-    res.render("index", {burger_data: burgerData},);
+    res.render("index", {burger_data: burgerData});
   });
 });
 
@@ -23,6 +22,7 @@ router.post("/burgers/create", function(req, res) {
     // dont need line 23
     // res.json({ id: result.insertId });
     console.log(result)
+    res.redirect("/burgers")
   });
 });
 // put is editing something that already exists
