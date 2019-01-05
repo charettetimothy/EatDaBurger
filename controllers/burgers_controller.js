@@ -28,7 +28,8 @@ router.post("/burgers/create", function(req, res) {
 // put is editing something that already exists
 router.put("/api/cats/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-
+// when call the update function pass the id and a callback
+// console.log the resulkt and reload the page
   console.log("condition", condition);
 
   cat.update(
