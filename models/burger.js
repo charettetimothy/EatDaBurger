@@ -15,16 +15,18 @@ var burger = {
         cb(res);
       });
   },
-  update: function (id, cb) {
+  update: function (objColVals, condition, cb) {
     var condition = "id=" + id;
-    // crucial part to understand!!!!
-    // translates between objects and sql 
-    // basically turns into objects
-    // devoured is a key value pair
-    orm.update("burgers", {
-      devoured: true
-    }, condition, cb)
+    orm.update("burgers", {devoured: true}, condition, cb => {
+      cb(res);
+    })
+  },
+  delete: function (condition, cb) {
+    orm.delete("burgers", condition, res => {
+      cb(res);
+    });
   }
 };
+
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;
