@@ -1,9 +1,12 @@
 # EatDaBurger
+
 This is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). This uses the MVC design pattern; using Node and MySQL to query and route data, and Handlebars (templating software) to generate the HTML.
+
+![EatDaBurger](public/assets/img/burger.gif)
 
 ## Getting Started
 
-Click here and you will be taken to the survey,  [Friend_Finder](https://serene-castle-72610.herokuapp.com/). Good luck!
+Click here and you will be taken to the app,  [EatDaBurger](https://nameless-savannah-23342.herokuapp.com/). Enjoy!
 
 ## Built With
 
@@ -15,6 +18,11 @@ Click here and you will be taken to the survey,  [Friend_Finder](https://serene-
 * [MySQL](https://www.mysql.com/products/workbench/) - Visual tool for database architects.
 * [Heroku](https://heroku.com) - Heroku is a cloud platform as a service supporting several programming languages.
 * [Handlebars.js](https://handlebarsjs.com) - Templating engine.  It is based on the Mustache template language.
+* [JawsDB MySQL](https://elements.heroku.com/addons/jawsdb) - Add-on for providing a fully functional MySQL Database server for use with Heroku application
+
+## Challenges
+
+This application uses the MVC architecture and a handmade ORM, no sequalize in this one. Getting to understand the flow of data inside of the MVC architecture was the biggest challenge. Also deploying the app and the database was also an interesting challenge to overcome. Thanks to JawsDB it was a much easier task.
 
 ## Authors
 
